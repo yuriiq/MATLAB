@@ -10,6 +10,6 @@ function [ sigN ] = getSigNbadP( ph0, T, size, sigma, n )
         if (sigN(x) > 1), sigN(x) = 1; end;
         if (sigN(x) < -1), sigN(x) = -1; end;
     end
-    dlmwrite('lastSigNbadP.txt',sigN, '\t');
+    % dlmwrite('lastSigNbadP.txt',sigN, '\t');
 end
 

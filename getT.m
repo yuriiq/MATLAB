@@ -6,6 +6,5 @@ function [ T ] = getT( phase, coeff )
     x = 1:1:size;
     h = histc(dIndArr,x);
     T = meanNotOne(dIndArr);   
-    plot(h);
 end
 

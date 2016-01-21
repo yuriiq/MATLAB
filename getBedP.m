@@ -8,7 +8,7 @@ function [ bedP ] = getBedP( phase )
  for x = 1:1:size
      dPhase(x) = dPhase(x)*dPhase(x); 
  end 
- plot(dPhase); % отображение графика квадрата разности фаз 
+ % plot(dPhase); % отображение графика квадрата разности фаз 
  bedP = getMaxInd(dPhase); % вычисление номера плохой точки
 end
 
