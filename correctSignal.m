@@ -1,9 +1,7 @@
 function [ signal ] = correctSignal( signal, n)
 %  орректирует сигнал в точке n
- phase = getPhase(signal); % вычисл€ем фазу
- size = numel(phase); % размер массива
- phT = getPhT( phase ); % параметры сигнала
- phaseM = linePhase( phT(1), phT(2), size ); %модельна€ фаза
- signal(n) = sin(phaseM(n)); % корректировка сигнала
+ phT = getPhT( getPhase(signal) ); % параметры сигнала
+ phaseM = phT(1) + (n*2*pi)/phT(2); %модельна€ фаза в точке
+ signal(n) = sin(phaseM); % корректировка сигнала
 end
 

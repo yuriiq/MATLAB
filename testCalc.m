@@ -1,14 +1,15 @@
-function [ ret ] = testCalc( ph0, T, size, sigma, k, dellP, radius)
+function [ ret ] = testCalc( ph0, T, size, sigma, k, dellP)
 % ѕроверка вычислени€ параметров сигнала
     ph0M=zeros(0, k);
     TM = zeros(0, k);
     for x = 1:1:k
-        phase = getPhase(getSigN(ph0, T, size, sigma));
+        signal = getSigN(ph0, T, size, sigma);
         for xx = 1:1:dellP
+            phase = getPhase(signal);
             bedP = getBedP(phase) ;
-            phase  = correctPhase( phase, bedP, radius) ; 
+            signal  = correctSignal(phase, bedP) ; 
         end 
-        p = getPhT(phase);
+        p = getPhT(getPhase(signal));
         if isnan(p(1)) || isnan(p(2))
             disp('isnan:'+x);
         else
