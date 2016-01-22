@@ -2,12 +2,13 @@ function [ ret ] = testCalc( ph0, T, size, sigma, k, dellP)
 % ѕроверка вычислени€ параметров сигнала
     ph0M=zeros(0, k);
     TM = zeros(0, k);
-    for x = 1:1:k
+    % matlabpool(4);
+    parfor x = 1:k
         signal = getSigN(ph0, T, size, sigma);
         for xx = 1:1:dellP
             phase = getPhase(signal);
             bedP = getBedP(phase) ;
-            signal  = correctSignal(phase, bedP) ; 
+            signal  = correctSignal(signal, bedP) ; 
         end 
         p = getPhT(getPhase(signal));
         if isnan(p(1)) || isnan(p(2))

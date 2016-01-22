@@ -1,7 +1,9 @@
 function [ T ] = getT( phase, coeff )
 % Грубая оценка периода по фазе через производную.
     dIndArr = diff(getPhaseShiftIds( phase, coeff )); % производная индексов
+    dlmwrite('dIndArr.txt',dIndArr,'\n'); 
     dIndArr = correctArray(dIndArr); % убираем слишком маленькие значения
-    T = meanNotOne(dIndArr);   
+    dlmwrite('dIndArrCorr.txt',dIndArr,'\n'); 
+    T = mean(dIndArr);   
 end
 

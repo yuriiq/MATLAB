@@ -4,6 +4,6 @@ function [ sigN ] = getSigN( ph0, T, size, sigma )
     z = normrnd(0, sigma, 1, size);
     phaseN =  plus(phase, z) ;
     sigN = cos(phaseN);
-    dlmwrite('lastSigN.txt',sigN, '\t');
+    % dlmwrite('lastSigN.txt',sigN, '\t');
 end
 
