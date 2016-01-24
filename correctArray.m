@@ -3,7 +3,7 @@ function [ res ] = correctArray( array )
 % Эта функция предназначена для того, чтобы убрать ложные срабатывания при
 % вычислении периода методом производных. 
     maxN = 100;
-    minN = 10;
+    minN = 5;
     size = numel(array); % размер массива
     res = zeros(0,size);
     notOne = 0;
