@@ -1,11 +1,11 @@
 function [ indArr ] = getPhaseShiftIds( phase, coeff )
 % Возвращает номера точек, в кторорых возможен сдвиг фазы
     y = 1;
-    dlmwrite('phase.txt',phase,'\n');
+    %dlmwrite('phase.txt',phase,'\n');
     dPhase = diff2(phase); % квадрат первой производной
-    dlmwrite('dPhase.txt',dPhase,'\n');
+    %dlmwrite('dPhase.txt',dPhase,'\n');
     dPhase = diff2(dPhase); % квадрат второй производной
-    dlmwrite('dPhase2.txt',dPhase,'\n');
+    %dlmwrite('dPhase2.txt',dPhase,'\n');
     MaxNum = max(dPhase) * coeff; % порог срабатывания фильтра
     size = numel(dPhase); % размер массива
     indArr = zeros(0, size); % индексы перехода фазы
@@ -15,6 +15,6 @@ function [ indArr ] = getPhaseShiftIds( phase, coeff )
             y = y+1;
         end
     end
-    dlmwrite('indArr.txt',indArr,'\n');    
+    %dlmwrite('indArr.txt',indArr,'\n');    
 end
 

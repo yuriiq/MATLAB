@@ -2,7 +2,7 @@ function [ Terr, Ts ] = testGradTable( sizeSig, minT, maxT, step, N )
 % Тестируем функцию gradTable( sizeSig, start, finish, step )
     minMu = 2*pi/maxT;
     maxMu = 2*pi/minT;
-    step = minMu*step;
+    step = minMu*(step/minT);
     p = gradTable( sizeSig, minMu, maxMu, step );
     finish = round((maxMu - minMu ) / step);
     Terr = zeros(2,finish);

@@ -2,8 +2,8 @@ function [ res ] = correctArray( array )
 % Прибавляет единицы в соседнюю ячейку, где значение меньше badN
 % Эта функция предназначена для того, чтобы убрать ложные срабатывания при
 % вычислении периода методом производных. 
-    maxN = 100;
-    minN = 5;
+    maxN = 50;
+    minN = 8;
     size = numel(array); % размер массива
     res = zeros(0,size);
     notOne = 0;
@@ -27,5 +27,7 @@ function [ res ] = correctArray( array )
             y = y+1;            
         end
     end
+    % res(1) = res(1)+notOne/4;
+    if y > 3 , res(y-1) = res(y-2); end;
 end
 

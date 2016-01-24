@@ -10,7 +10,7 @@ function [ Terr, Ts ] = testGetT( sizeSig, minT, maxT, step, N )
             t2 = 0; 
             while t2 < minT
                 signal =  getSigN( 0, t, sizeSig, 0.15*pi );
-                t2 = getT( getPhase(signal), 0.5 );
+                t2 = getT( getPhase(signal), 0.45 );
             end;
             tterr(xx) = t2-t; 
          end
