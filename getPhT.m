@@ -1,8 +1,7 @@
-function [ phaseT ] = getPhT( phaseM1 )
+function [ phaseT ] = getPhT( phaseM1, T )
 % ¬ычисление параметров косинусного сигнала
-    ph0 = 0;  y = 0; maxY = 10; eps = 10e-12; coeff = 0.5;
+    ph0 = 0;  y = 0; maxY = 10; eps = 10e-12; 
     p(1) = 1; p(2) = 1;
-    T = getT( phaseM1, coeff );
     mu = (2*pi) / T;
     size = numel (phaseM1);
     while (((p(1)^2 > eps) || (p(2)^2 > eps)) && (y < maxY))
