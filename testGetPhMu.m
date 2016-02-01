@@ -5,18 +5,18 @@ function testGetPhMu( sizeSig, minMu, maxMu, step, N, sigma )
  mus = zeros(1,size);
  ph0std = zeros(1,size);
  mustd = zeros(1,size);
- ph0 = 1;
  i=0;
- p = gradTable( sizeSig, minMu, maxMu, step );
+ [ id , Mu] = gradTable( sizeSig, minMu-step*2, maxMu+step*2, step*0.5 );
  for x = minMu:step:maxMu
     ph0M  = zeros(1,N);
     muM   = zeros(1,N);
-    for xx = 1:N
-        signal = getSigN( ph0, 2*pi/x, sizeSig, sigma );
+    ph0 = random('Normal',0,sigma,N,1);
+    parfor xx = 1:N
+        signal = getSigN( ph0(xx), 2*pi/x, sizeSig, sigma );
         phase = getPhase(signal);
-        % mu2 = getMuByP( signal, p );
-        [ph0r, mur] = getPhMu(phase, 0, x*1.08, 10e-5); 
-        ph0M(xx) = ph0r - ph0;
+        mu2 = getMuByTable( signal, id, Mu);
+        [ph0r, mur] = getPhMu(phase, 0, mu2, 10e-5); 
+        ph0M(xx) = ph0r - ph0(xx);
         muM(xx) =  mur - x;
     end;
     i = i+1;
