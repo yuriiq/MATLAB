@@ -1,6 +1,6 @@
-function [ ph0, mu ] = getPhMu( phaseM1, ph0, mu, eps)
+function [ ph0, mu, dPhase ] = getPhMu( phaseM1, ph0, mu, eps)
 % ¬ычисление параметров косинусного сигнала
-    y = 0; maxY = 10;  
+    y = 0; maxY = 15;  
     p(1) = 1; p(2) = 1;
     size = numel (phaseM1);
     while (((abs(p(1)) > eps) || (abs(p(2)) > eps)) && (y < maxY))
@@ -10,8 +10,9 @@ function [ ph0, mu ] = getPhMu( phaseM1, ph0, mu, eps)
         p = polyfit(x,dPhase,1);
         mu = mu -  p(1);
         ph0 = ph0- p(2);
-        y = y + 1; p(3) = y;
+        y = y + 1; %p(3) = y;
     end
-    % dlmwrite('dPhase.txt',dPhase, '\n');
+    % plot(dPhase);
+    % dlmwrite('dPhase.txt',phaseM2, '\n');
 end
 

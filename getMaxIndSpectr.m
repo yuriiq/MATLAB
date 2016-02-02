@@ -9,7 +9,11 @@ function [ res ] = getMaxIndSpectr( array )
             maxI = x;
         end
     end
-    if array(maxI-1) > array(maxI+1), maxI2 = maxI-1; else maxI2 = maxI+1; end;
+    if (maxI == 1)
+        maxI2 = 2;
+    else
+        if array(maxI-1) > array(maxI+1), maxI2 = maxI-1; else maxI2 = maxI+1; end;
+    end
     varA = array(maxI);
     varB = array(maxI2);
     k = (varB / varA ) / 2;

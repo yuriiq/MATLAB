@@ -4,7 +4,7 @@ function [ indArr ] = getPhaseShiftIds( phase, coeff )
     %dlmwrite('phase.txt',phase,'\n');
     dPhase = diff2(phase); % квадрат первой производной
     %dlmwrite('dPhase.txt',dPhase,'\n');
-    dPhase = diff2(dPhase); % квадрат второй производной
+    % dPhase = diff2(dPhase); % квадрат второй производной
     %dlmwrite('dPhase2.txt',dPhase,'\n');
     MaxNum = max(dPhase) * coeff; % порог срабатывания фильтра
     size = numel(dPhase); % размер массива
