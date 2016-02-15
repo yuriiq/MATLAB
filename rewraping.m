@@ -1,7 +1,7 @@
 function [ resPhase ] = rewraping( phase, ids )
 % Разворачиваем фазу в точках 
  size = numel(ids);
- sizeImg = 337;
+ sizeImg = numel(phase);
  resPhase = zeros(1,sizeImg);
  k=0;
  idLast = 1;
