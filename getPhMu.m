@@ -1,7 +1,6 @@
-function [ ph0, mu, dPhase ] = getPhMu( phaseM1, ph0, mu, eps)
+function [ ph0, mu, dPhase ] = getPhMu( phaseM1, ph0, mu, eps, maxY)
 % ¬ычисление параметров косинусного сигнала
-    y = 0; maxY = 50;  
-    p(1) = 1; p(2) = 1;
+    y = 0; p(1) = 1; p(2) = 1;
     size = numel (phaseM1);
     while (((abs(p(1)) > eps) || (abs(p(2)) > eps)) && (y < maxY))
         phaseM2 = getPhase(cos(normPhase(linePhaseMu(ph0, mu, size))));
