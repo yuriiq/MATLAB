@@ -1,16 +1,26 @@
-function   rewraPhi0( inDir, outDir, coeff )
-% Разворачиваем фазу из массива файлов
+function   rewraPhi0( inDir, outDir )
+% Сворачиваем фазу из массива файлов
+Y = 253;
 X = 227;
-for x=1:X
-    filename = [inDir 'X_' int2str(x) '.txt'] ;
-    phase = dlmread (filename); % phase = zero(Y,Z);
-    sizePh = size(phase);
-    parfor y=1:sizePh(1)
-        ids = getPhaseShiftIds( phase(y,:), coeff );
-        phase(y,:) = rewraping( phase(y,:), ids ) ;
+Z = 391; 
+k = -1.3391+ 2,543210943391;
+phase = zeros(Y,X,Z);
+parfor z = 1:Z
+    filename = [inDir 'vdata' int2str(z) '.txt'] ;
+    Rphase = dlmread (filename); 
+    for y = 1:Y
+            x = 114; 
+            Rphase(y,x) = normPhase(Rphase(y,x)+ k) ;
     end
+    phase(:,:,z) = Rphase(:,:); 
+    fprintf('%d; ',Z-z);
+end
+
+    
+x = 114; 
     filename = [outDir 'X_' int2str(x) '.txt'] ;
-    dlmwrite(filename, phase);
-    disp(X-x);
+    phaseX = zeros(Y,Z);
+    phaseX(:,:) = phase(:,x,:);
+    dlmwrite(filename, phaseX );
 end
 
