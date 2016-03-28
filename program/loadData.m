@@ -1,8 +1,8 @@
 function dataArray = loadData( dirIn )
-% Читает все кадры в массив 
+% пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
 disp('loadData');
 minSeria = 340;
-maxSeria = 346;
+maxSeria = 345;
 maxCdr = 124;
 prefix = 'shot_0';
 filename = [dirIn prefix int2str(maxSeria) '_01_00r.bmp'];
