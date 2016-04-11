@@ -1,7 +1,7 @@
 function [ ret ] = testCalc( ph0, T, size, sigma, k, dellP)
 % ѕроверка вычислени€ параметров сигнала
-    ph0M=zeros(0, k);
-    TM = zeros(0, k);
+    ph0M=zeros(1, k);
+    TM = zeros(1, k);
     % matlabpool(4);
     parfor x = 1:k
         signal = getSigN(ph0, T, size, sigma);

@@ -1,9 +1,7 @@
 function [ data ] = subObject( data, mask )
 % Вычитает подложку из объекта
 % data = zeros(Y,X);
-sizeD = size(data);
-Y = sizeD(1);
-X = sizeD(2);
+[Y X] = size(data);
 xD = zeros(Y*X,1);
 yD = zeros(Y*X,1);
 zD = zeros(Y*X,1);

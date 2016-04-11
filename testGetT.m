@@ -5,7 +5,7 @@ function [ Terr, Ts ] = testGetT( sizeSig, minT, maxT, step, N )
     Ts = zeros(1,finish);
     for x=1:finish
          t = step*x + minT;
-         tterr = zeros(0,N);
+         tterr = zeros(1,N);
          parfor xx = 1:N
             t2 = 0; 
             while t2 < minT

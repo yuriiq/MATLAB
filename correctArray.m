@@ -5,7 +5,7 @@ function [ res ] = correctArray( array )
     maxN = 50;
     minN = 8;
     size = numel(array); % размер массива
-    res = zeros(0,size);
+    res = zeros(1,size);
     notOne = 0;
     for x = size:-1:1
         if (array(x) > minN)

@@ -1,8 +1,8 @@
 function [  ret ] = testCalcBadP( ph0, T, size, sigma, k, bedPN, n)
 % “естируем поиск и устранение плохой точки
-    ph0M=zeros(0, k);
-    TM = zeros(0, k);
-    phTarr = zeros(0, n + 1 );
+    ph0M=zeros(1, k);
+    TM = zeros(1, k);
+    phTarr = zeros(1, n + 1 );
     for xx= 1:1:k
         signal = getSigNbadP( ph0, T, size, sigma, bedPN );
         phase = getPhase(signal);

@@ -3,7 +3,7 @@ function [ ids ] = getMaxInds( array, k )
 % k процентов. 
     size = numel(array);
     maxN = max(array);
-    ids = zeros(0, size);
+    ids = zeros(1, size);
     y = 1;
     for x = 1:1:size
         if (array(x) > maxN*k) 

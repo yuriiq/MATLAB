@@ -1,8 +1,8 @@
 function [ id , Mu] = gradTable( sizeSig, start, finish, step )
 % Возвращает параметры прямой для определения частоты
     sizeTab = round((finish - start ) / step);
-    id = zeros(0,sizeTab);
-    Mu = zeros(0,sizeTab);
+    id = zeros(1,sizeTab);
+    Mu = zeros(1,sizeTab);
     parfor x=1:sizeTab
         mu = step*x + start;
         signal =  cos(linePhaseMu( 0, mu, sizeSig));

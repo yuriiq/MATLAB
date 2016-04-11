@@ -4,8 +4,8 @@ function [ ret ] = getPoints2( data, y, x, r )
     Y = sizeData(1);
     X = sizeData(2);
     sizeR = round(pi*r*r)+1;
-    datas = zeros(sizeR); 
-    R = zeros(sizeR); 
+    datas = zeros(1,sizeR); 
+    R = zeros(1,sizeR); 
     i=0;
     for yy=y-r:y+r
         for xx=x-r:x+r
@@ -18,6 +18,10 @@ function [ ret ] = getPoints2( data, y, x, r )
                 end;
             end;
         end;
+    end;
+    if ( y == round(Y/2)) && (x == round(X/2)) 
+        dlmwrite(['datas_Y_' y 'X_' x '.txt'], datas, '\n'); 
+        dlmwrite(['Rs_Y_' y 'X_' x '.txt'], R, '\n' ); 
     end;
     if (i>0), ret = calcV( datas,R ); else ret = data(y,x);
 end

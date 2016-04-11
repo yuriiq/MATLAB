@@ -1,7 +1,7 @@
 function [ p ] = getPolyPhMu( phaseM1, ph0, mu, pfN)
 % ¬ычисление параметров косинусного сигнала
     y = 0; maxY = 10;  
-    p = zeros(0,pfN+1);
+    p = zeros(1,pfN+1);
     p(pfN) = mu; p(pfN+1) = ph0;
     size = numel (phaseM1);
     while  (y < maxY)

@@ -1,11 +1,9 @@
 function [ points, Rs, i] = getPoints( data, y, x, r )
 % Возвращает набор точек с радиусом 
-    sizeData = size(data);
-    Y = sizeData(1);
-    X = sizeData(2);
+    [Y X] = size(data);
     sizeR = round(pi*r*r)+1;
-    points = zeros(sizeR); 
-    Rs = zeros(sizeR); 
+    points = zeros(1, sizeR); 
+    Rs = zeros(1, sizeR); 
     i=0;
     for yy=y-r:y+r
         for xx=x-r:x+r

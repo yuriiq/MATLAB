@@ -1,9 +1,6 @@
 function [ ret ] = grayImg( img )
 % Делает картинку серой
- imgSize = size(img);
- X = imgSize(1);
- Y = imgSize(2);
- Z = imgSize(3);
+ [X Y Z] = size(img);
  ret = zeros(X,Y);
  for x = 1:X
      for y = 1:Y

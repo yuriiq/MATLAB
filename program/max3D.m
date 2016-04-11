@@ -1,9 +1,6 @@
 function [ maxA ] = max3D( A )
 % Максимум
-s = size(A);
-X=s(1);
-Y=s(2);
-Z=s(3);
+[X Y Z] = size(A);
 maxA = A(1,1,1);
 for x=1:X
 	for y=1:Y

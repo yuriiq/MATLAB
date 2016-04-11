@@ -3,7 +3,7 @@ function [ phase ] = linePhase( ph0, T, size)
 % ph0 - начальная фаза
 % T - период
 % size - размер массива
-    phase = zeros(0, size);
+    phase = zeros(1, size);
     for x = 1:1:size
         phase(x) = ph0 + (x*2*pi)/T;
     end

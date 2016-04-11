@@ -8,7 +8,7 @@ function [ indArr ] = getPhaseShiftIds( phase, coeff )
     %dlmwrite('dPhase2.txt',dPhase,'\n');
     MaxNum = max(dPhase) * coeff; % порог срабатывания фильтра
     size = numel(dPhase); % размер массива
-    indArr = zeros(0, size); % индексы перехода фазы
+    indArr = zeros(1, size); % индексы перехода фазы
     for x = 1:1:size % сохраняем номера точек, в которых преодалён порог
         if dPhase(x) > MaxNum
             indArr(y) = x;

@@ -1,6 +1,6 @@
 function [ phase ] = polyPhaseMu( p, size)
 % Получение развёрнутой фазы с заданными параметрами 
-    phase = zeros(0, size);
+    phase = zeros(1, size);
     pow = numel(p);
     for x = 1:1:size
         polyPhase = 0;

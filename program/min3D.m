@@ -1,9 +1,6 @@
 function [ minA ] = min3D( A )
 % Минимум
-s = size(A);
-X=s(1);
-Y=s(2);
-Z=s(3);
+[X Y Z] = size(A);
 minA = A(1,1,1);
 for x=1:X
 	for y=1:Y
