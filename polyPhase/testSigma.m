@@ -7,6 +7,7 @@ function  testSigma ( sizeSig, ph0, minSigma, maxSigma, step, N )
  i=0;
  [ id , Mu] = gradTable( sizeSig, muu - 0.02 , muu + 0.02, 0.0005);
  for sigma = minSigma:step:maxSigma
+    disp(maxSigma-sigma);     
     dph0  = 0;
     parfor xx = 1:N % getSigN(mu2, mu, ph0, size, sigma )
         signal = getSigN( 0, muu, ph0 , sizeSig, sigma );
@@ -20,9 +21,8 @@ function  testSigma ( sizeSig, ph0, minSigma, maxSigma, step, N )
     end;
     i = i+1;
     ph0s(i) = dph0/N;
-    disp(maxSigma-sigma);
  end;
   sigma = minSigma:step:maxSigma;
-  dlmwrite('ph0s.txt', ph0s,'\n');
-  dlmwrite('sigma.txt', sigma,'\n');  
+  dlmwrite([int2str(sizeSig) '_ph0s.txt'], ph0s,'\n');
+  dlmwrite([int2str(sizeSig) '_sigma.txt' ], sigma,'\n');  
 end
