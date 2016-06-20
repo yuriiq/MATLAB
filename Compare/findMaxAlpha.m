@@ -1,4 +1,4 @@
-function retP = findMaxAlpha( phase, pMin, pMax, pStep )
+function [retP, maxAlpha] = findMaxAlpha( phase, pMin, pMax, pStep )
 maxAlpha = 0;
 retP = pMin;
 if numel(pMin) == 3 && numel(pMax) == 3 && numel(pStep) == 3
@@ -34,6 +34,6 @@ if numel(pMin) == 1 && numel(pMax) == 1 && numel(pStep) == 1
         end
     end
 end
+[retP,fval] = fminsearch(@(x) -alpha(x,phase), retP);
+if maxAlpha > -fval, disp('Error!'); else maxAlpha = -fval; end;    
 end
-
-
